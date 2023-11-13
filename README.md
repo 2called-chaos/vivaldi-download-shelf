@@ -2,6 +2,8 @@
 
 This is a download shelf mod (inspired by the old Chrome download shelf) for the [Vivaldi Browser](https://vivaldi.com).
 
+
+
 ** This is an early release, use with caution! **
 
 ## Missing features
@@ -14,6 +16,7 @@ This is a download shelf mod (inspired by the old Chrome download shelf) for the
 
 ## Features
 
+* works with or without status bar and sidebar (injects before footer element)
 * should somewhat use theme colors
 * Files in shelf:
   * click = open (or when in progress toggles open when complete)
