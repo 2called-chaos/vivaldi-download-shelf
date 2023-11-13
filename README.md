@@ -2,7 +2,7 @@
 
 This is a download shelf mod (inspired by the old Chrome download shelf) for the [Vivaldi Browser](https://vivaldi.com).
 
-
+![screenshot](https://statics.bmonkeys.net/img/vivaldi_download_shelf.png)
 
 ** This is an early release, use with caution! **
 
