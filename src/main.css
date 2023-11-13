@@ -1,0 +1,165 @@
+#download-shelf {
+  background-color: var(--colorWindowBg);
+}
+
+#download-shelf .shelf-actions {
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+#download-shelf .shelf-actions button {
+  padding: 0.5rem !important;
+  height: auto !important;
+  flex: none !important;
+  min-width: 0 !important;
+  margin-left: 0.5rem;
+  border-radius: 4px !important;
+}
+#download-shelf .shelf-actions button:hover {
+  background-color: var(--colorHighlightBgAlpha);
+}
+
+#download-shelf .shelf-actions button svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+#download-shelf .shelf-actions [name="downloadShelfShowAll"] {
+  padding: 0.5rem 0.75rem !important;
+  border: 1px solid var(--colorAccentBorderDark) !important;
+}
+
+
+#download-shelf-downloads {
+
+}
+
+#download-shelf-downloads .download-shelf-entry {
+  display: flex !important;
+  align-items: center;
+  padding: 0.66rem 0.5rem 0.66rem 0.75rem !important;
+  position: relative;
+  height: 100% !important;
+  transition: background-color 250ms linear;
+}
+
+#download-shelf-downloads .download-shelf-entry:hover {
+  background-color: var(--colorHighlightBgAlpha);
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-status,
+#download-shelf-downloads .download-shelf-entry .entry-name {
+  width: 180px;
+  max-width: 180px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-status {
+  margin-top: 0.2rem;
+  font-size: 0.6rem;
+}
+
+#download-shelf-downloads .download-shelf-entry.error .entry-status {
+  color: var(--colorErrorBg);
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-info-panel {
+  padding: 0 0.25rem 0 0.5rem;
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-actions a {
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+#download-shelf-downloads .download-shelf-entry .entry-actions a:hover {
+  background-color: var(--colorBgFaded);
+}
+
+#download-shelf-downloads .download-shelf-entry .divider {
+  border-right: 1px solid var(--colorAccentFgFaded);
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: 0;
+}
+
+@keyframes progress {
+  0% { --percentage: 0; }
+  100% { --percentage: var(--value); }
+}
+
+@keyframes dl-finished {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+@keyframes rotate {
+  100%   { transform: rotate(360deg) }
+}
+
+@property --percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-icon-outer {
+  position: relative;
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-icon {
+  position: absolute;
+  /*top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+  left: 8px;
+  top: 8px;
+  width: 55%;
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-spinner {
+  --percentage: var(--value);
+  --size: 36px;
+  animation: progress 2s 0.5s forwards;
+  width: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+#download-shelf-downloads .download-shelf-entry.working .entry-spinner {
+  --value: 30 !important;
+  animation: rotate 1s linear infinite;
+}
+
+#download-shelf-downloads .download-shelf-entry.error .entry-spinner,
+#download-shelf-downloads .download-shelf-entry.complete .entry-spinner {
+  animation: dl-finished 2s 0.5s forwards;
+}
+
+#download-shelf-downloads .download-shelf-entry.complete .entry-spinner::before {
+  background: conic-gradient(var(--colorSuccessBg) 100%, var(--colorAccentBgDarker) 0);
+}
+
+#download-shelf-downloads .download-shelf-entry.error .entry-spinner::before {
+  background: conic-gradient(var(--colorErrorBg) 100%, var(--colorAccentBgDarker) 0);
+}
+
+#download-shelf-downloads .download-shelf-entry .entry-spinner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(var(--colorHighlightBg) calc(var(--percentage) * 1%), var(--colorAccentBgDarker) 0);
+  mask: radial-gradient(white 55%, transparent 0);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(#0000 55%, #000 0);
+  -webkit-mask-mode: alpha;
+}
