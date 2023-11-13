@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 
 cat > ./dist/download-shelf.js <<EOF
 // Vivaldi Download Shelf Mod
-//  -- version: 0.1
+//  -- version: $(cat ./VERSION)
 //  --  author: 2called-chaos
 
 // constants

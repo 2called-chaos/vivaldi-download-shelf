@@ -37,11 +37,10 @@ Don't forget to restart Vivaldi!
 
 ## Development
 
-* Edit files in src/ and run `build.sh` (bash script) to create the "release" in dist/
+* Edit files in src/ and run `build.sh` (bash script) or `build.ps1` (powershell) to create the "release" in dist/
 * Copy or symlink `dist/download-shelf.js` to your mod folder and run `install.sh`
 
 Your setup should either inject all your mods or a concatenated version of it into your Vivaldi installation.
-See installation or youtube video for more information.
 For reference, here is my [install script for my Vivaldi mod folder](https://gist.github.com/2called-chaos/4572efe488d05799f6c2ec3a7d65ef8c)
 
 
